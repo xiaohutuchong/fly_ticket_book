@@ -1,5 +1,5 @@
 # fly_ticket_book（飞机票预订系统）
-- 将other.zip中的文件解压后放到根目录中（因为以“.”开头的隐藏文件无法上传，所以就单独放到other.zip上传了）具体如下：![示例](https://github.com/xiaohutuchong/fly_ticket_book/blob/master/test.png)
+- 将other.zip中的文件解压后放到根目录中（因为以“.”开头的隐藏文件无法上传，所以就单独放到other.zip上传了）![示例](https://github.com/xiaohutuchong/fly_ticket_book/blob/master/test.png)
 - 数据库：localhost.sql
 - 项目整体分为三部分：index(用户中心)、default(首页部分)、admin（后台部分）
 - 项目运行环境在每个java类中以及每个jsp文件中都有注释
