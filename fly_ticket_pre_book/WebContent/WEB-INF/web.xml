@@ -46,6 +46,15 @@
   	<servlet-name>up_img</servlet-name>
   	<url-pattern>/upload_img</url-pattern>
   </servlet-mapping>
+	<servlet>
+		<servlet-name>up_inf</servlet-name>
+		<servlet-class>servlet.changeInfo</servlet-class>
+		<load-on-startup>5</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>up_inf</servlet-name>
+		<url-pattern>/upload_inf</url-pattern>
+	</servlet-mapping>
   <servlet>
   	<servlet-name>deal_message_board</servlet-name>
   	<servlet-class>servlet.deal_message</servlet-class>

@@ -2,11 +2,11 @@
 <%@page import="java.sql.ResultSet"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%-----------------------------------
--@data-time	2019?6?13?---??5:09:05
--@author	created by xiaohutuxian
--@IDE		eclipse
+-@data-time	2020/7?13?---5:09:05
+-@author	created by francis
+-@IDE		IntelliJ IDEA 2020.1.1
 -@tomcat	9.0
--@jdk		1.8.0_161	
+-@jdk		13.0.1
 ------------------------------------%>
 <%
 	//添加URL session ，作为用户登录后跳转回来的依据,登录servlet中已经写了判断程序，如果有url_cookie，就跳转到url_cookie，如果没有，就跳转到用户中心
@@ -16,7 +16,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>小糊涂仙机票预订系统</title>
+<title>网络机票销售系统</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/common.css" rel="stylesheet">
 <link href="css/corptravel.css" rel="stylesheet">
@@ -80,7 +80,7 @@
 						class="icon-bar"></span>
 				</button>
 				<a class=" " href="index.jsp"><img src="images/logo.png"
-					width="210" height="70" alt="系统LOGO" class="pull-left mar-right-30"
+					width="230" height="80" alt="系统LOGO" class="pull-left mar-right-30"
 					style="margin-left: -15px;"></a>
 
 			</div>
@@ -116,10 +116,6 @@
 						style="width: 85px;" id="" value="" placeholder="出发城市">
 				</div>
 				<div class="form-group">
-					<label for=""> — <a href="#" class="huan">换</a> —
-					</label>
-				</div>
-				<div class="form-group">
 					<label for="">到达城市</label> <input name="destination" type="text" class="form-control"
 						style="width: 85px;" id="" value="" placeholder="到达城市">
 				</div>
@@ -141,8 +137,9 @@
 					ResultSet res=conn.executeQuery(sql);
 					while(res.next()){
 						String f_i=res.getString(1);
+						String f_i_c=f_i.substring(0,2);
 						String s_p=res.getString(2);
-						String end_place=res.getString(3);
+						String e_l_p=res.getString(3);
 						String s_a=res.getString(4);
 						String e_a=res.getString(5);
 						String t_t=res.getString(6);
@@ -157,15 +154,16 @@
 			
 				<!-- 表头 -->
 				<ul class="list-inline bor-bottom-solid-1  ">
-					<li class="w-percentage-25"><img src="images/air/CA.png"
-						width="24" height="24"> <strong>国航</strong> <%=f_i %><span
-						class="gray-999 font12 mar-left-10">机型：空客320（中）</span></li>
+					<li class="w-percentage-25"><img src="images/air/<%=f_i_c %>.png"
+						width="24" height="24"> <%=f_i %><span
+						class="gray-999 font12 mar-left-10">机型：空客（中）</span></li>
 					<li class="text-right w80"><strong class="time "><%=t_t %></strong></li>
 					<li class="">——</li>
 					<li class="w80"><strong class="time "><%=l_t %></strong></li>
-					<li class="w100 text-right"><%=s_a %></li>
+					<li class="w120 text-right"><%=s_p %>(<%=s_a %>)</li>
 					<li class="">——</li>
-					<li class=" w100"><%=e_a %></li>
+					<li class=" w120"><%=e_l_p %>(<%=e_a %>)</li>
+
 					
 				</ul>
 				<!-- 表头结束 -->
